@@ -14,6 +14,14 @@ import org.openqa.selenium.io.FileHandler;
 public class ScreenshotUtils {
 	public void capture_Screenshot_failures(WebDriver driver, String failed_imageName) throws IOException {
 		String timeStamp = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss").format(new Date());
+
+		File reportPath = new File(System.getProperty("user.dir") + "//ScreenshotImages");
+
+		if (!reportPath.exists()) {
+
+			reportPath.mkdir();
+
+		}
 		// date time capture using java
 		TakesScreenshot scrShot = (TakesScreenshot) driver;
 		File screenShot = scrShot.getScreenshotAs(OutputType.FILE);

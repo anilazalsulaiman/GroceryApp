@@ -23,4 +23,7 @@ public class GeneralUtilities {
 	public void acceptAlert(WebDriver driver) {
 		driver.switchTo().alert().accept();
 	}
+	public void random_Num_Generator() {
+		Math.random();
+	}
 }
