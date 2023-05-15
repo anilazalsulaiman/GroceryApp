@@ -1,0 +1,13 @@
+<suite name="My_suit">
+	<test name="test">
+	<parameter name="browser" value="chrome"></parameter>
+		<groups>
+			<run>
+				<include name="Critical"></include>
+			</run>
+		</groups>
+		<classes>
+			<class name="testCases.ME_ExpenseCategoryPage"></class>
+		</classes>
+	</test>
+</suite>

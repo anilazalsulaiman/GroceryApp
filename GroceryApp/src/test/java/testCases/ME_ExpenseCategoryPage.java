@@ -16,7 +16,7 @@ public class ME_ExpenseCategoryPage extends BaseClass {
 	ME_ExpenseCategoryClass expense_cat_obj;
 	SideBarElements sdElem;
 
-	@Test
+	@Test(groups = "Critical")
 	public void verify_ManageExpense_Expensecategory_NewButton_Text() throws IOException {
 		lp = new LoginPage(driver);
 		lp.perform_LoginPage(ExcelReadUtils.readStringData(1, 0, "Sheet1"),

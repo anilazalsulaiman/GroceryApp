@@ -1,0 +1,14 @@
+<suite name="My_suit" parallel="tests" thread="2">
+	<test name="Chrome_test">
+	<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class name="testCases.ME_ExpenseCategoryPage"></class>
+		</classes>
+	</test>
+	<test name="Edge_test">
+	<parameter name="browser" value="edge"></parameter>
+		<classes>
+			<class name="testCases.Tc_ME_Sub_ManageExpense"></class>
+		</classes>
+	</test>
+</suite>

@@ -62,6 +62,12 @@ public class ME_ExpenseCategoryClass {
 
 	public void ExpenseCategory_Add_title() {
 		// use random string/number generator "+Math.random()+"
+//		<dependency>
+//		<groupId>org.apache.commons</groupId>
+//		<artifactId>commons-lang3</artifactId>
+//		<version>3.12.0</version>
+//	</dependency>
+//		String generatedString= RandomStringUtils.randomAlphabetic(length);
 		add_title.sendKeys("Added Sample Test Title");
 		save_new_title.click();
 	}

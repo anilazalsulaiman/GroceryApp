@@ -38,6 +38,7 @@ public class Repo_ME_Sub_ManageExpense {
 
 	public boolean click_Sub_Manageexpense_ViewMore_button() {
 		get_ViewMore_element().click();
+		gu.explicit_wait_utility(driver, "//tr[@class='detail-row open']");
 		boolean value = false;
 		if (detail_row_open.getAttribute("class").contains("detail-row open")) {
 			value = true;
