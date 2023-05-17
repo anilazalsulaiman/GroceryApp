@@ -1,6 +1,8 @@
 package constant;
 
 public class Constants {
+	public static final String assertion_Error_Message="Not Matching";
+	
 	public static final String loginButton_Background_color="rgba(52, 58, 64, 1)";
 	public static final String error_message="Color Not matching";
 	
@@ -12,6 +14,8 @@ public class Constants {
 	
 	public static final String alert_expectedResult="Alert!";
 	public static final String error_Alert_message="Not Deleted";
+	
+	public static final String ddl_expectedResult="Admin(Admin)";
 	
 	
 	
