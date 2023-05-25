@@ -18,4 +18,14 @@ public class GeneralDynamicTable {
 		}
 		return locator;
 	}
+	
+	public boolean find_Compare_DynamicTable_Element(WebElement element,String attribute,String Comparevalue) {
+		boolean value = false;
+		if (element.getAttribute(attribute).contains(Comparevalue)) {
+			value = true;
+		} else {
+			value = false;
+		}
+		return value;
+	}
 }

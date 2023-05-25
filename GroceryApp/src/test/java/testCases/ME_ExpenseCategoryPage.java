@@ -19,8 +19,8 @@ public class ME_ExpenseCategoryPage extends BaseClass {
 	@Test(groups = "Critical")
 	public void verify_ManageExpense_Expensecategory_NewButton_Text() throws IOException {
 		lp = new LoginPage(driver);
-		lp.perform_LoginPage(ExcelReadUtils.readStringData(1, 0, "Sheet1"),
-				ExcelReadUtils.readStringData(1, 1, "Sheet1"));
+		lp.perform_LoginPage(ExcelReadUtils.readStringData(1, 0, "Sheet1", "LoginCredentialsExcel.xlsx"),
+				ExcelReadUtils.readStringData(1, 1, "Sheet1", "LoginCredentialsExcel.xlsx"));
 
 		expense_cat_obj = new ME_ExpenseCategoryClass(driver);
 		expense_cat_obj.click_ExpenseCategory_NewButton();
@@ -32,8 +32,8 @@ public class ME_ExpenseCategoryPage extends BaseClass {
 	@Test
 	public void verify_ManageExpense_Expensecategory_NewButton_isClickable() throws IOException {
 		lp = new LoginPage(driver);
-		lp.perform_LoginPage(ExcelReadUtils.readStringData(1, 0, "Sheet1"),
-				ExcelReadUtils.readStringData(1, 1, "Sheet1"));
+		lp.perform_LoginPage(ExcelReadUtils.readStringData(1, 0, "Sheet1", "LoginCredentialsExcel.xlsx"),
+				ExcelReadUtils.readStringData(1, 1, "Sheet1", "LoginCredentialsExcel.xlsx"));
 		expense_cat_obj = new ME_ExpenseCategoryClass(driver);
 		String actualResult = expense_cat_obj.click_ExpenseCategory_NewButton();
 		String expectedResult = "Expense Category Informations";
@@ -43,8 +43,8 @@ public class ME_ExpenseCategoryPage extends BaseClass {
 	@Test(priority = 3)
 	public void verify_ManageExpense_Expensecategory_Add_NewTitle() throws IOException {
 		lp = new LoginPage(driver);
-		lp.perform_LoginPage(ExcelReadUtils.readStringData(1, 0, "Sheet1"),
-				ExcelReadUtils.readStringData(1, 1, "Sheet1"));
+		lp.perform_LoginPage(ExcelReadUtils.readStringData(1, 0, "Sheet1", "LoginCredentialsExcel.xlsx"),
+				ExcelReadUtils.readStringData(1, 1, "Sheet1", "LoginCredentialsExcel.xlsx"));
 
 		expense_cat_obj = new ME_ExpenseCategoryClass(driver);
 		expense_cat_obj.click_ExpenseCategory_NewButton();
@@ -58,8 +58,8 @@ public class ME_ExpenseCategoryPage extends BaseClass {
 	@Test(priority = 4)
 	public void verify_ManageExpense_Expensecategory_NewTitle_isAdded() throws IOException {
 		lp = new LoginPage(driver);
-		lp.perform_LoginPage(ExcelReadUtils.readStringData(1, 0, "Sheet1"),
-				ExcelReadUtils.readStringData(1, 1, "Sheet1"));
+		lp.perform_LoginPage(ExcelReadUtils.readStringData(1, 0, "Sheet1", "LoginCredentialsExcel.xlsx"),
+				ExcelReadUtils.readStringData(1, 1, "Sheet1", "LoginCredentialsExcel.xlsx"));
 
 		expense_cat_obj = new ME_ExpenseCategoryClass(driver);
 		expense_cat_obj.click_ExpenseCategory_NewButton();
@@ -67,30 +67,32 @@ public class ME_ExpenseCategoryPage extends BaseClass {
 		Boolean exepectedResult = true;
 		Assert.assertEquals(actualresult, exepectedResult, "Result not matching");
 	}
+
 	@Test(priority = 5)
 	public void verify_ManageExpense_Expensecategory_updateIcon_isclickable() throws IOException {
 		lp = new LoginPage(driver);
-		lp.perform_LoginPage(ExcelReadUtils.readStringData(1, 0, "Sheet1"),
-				ExcelReadUtils.readStringData(1, 1, "Sheet1"));
+		lp.perform_LoginPage(ExcelReadUtils.readStringData(1, 0, "Sheet1", "LoginCredentialsExcel.xlsx"),
+				ExcelReadUtils.readStringData(1, 1, "Sheet1", "LoginCredentialsExcel.xlsx"));
 		expense_cat_obj = new ME_ExpenseCategoryClass(driver);
 		sdElem = new SideBarElements(driver);
 		sdElem.click_sidebar_manage_expense();
 		sdElem.sidebar_ME_Expense_Category();
-		String actualresult=expense_cat_obj.click_ExpenseCategory_update_icon();
+		String actualresult = expense_cat_obj.click_ExpenseCategory_update_icon();
 		String expectedResult = "Added Sample Test Title";
 		Assert.assertEquals(actualresult, expectedResult, "Result not matching");
 	}
+
 	@Test(priority = 6)
 	public void verify_ManageExpense_Expensecategory_isUpdatable() throws IOException {
 		lp = new LoginPage(driver);
-		lp.perform_LoginPage(ExcelReadUtils.readStringData(1, 0, "Sheet1"),
-				ExcelReadUtils.readStringData(1, 1, "Sheet1"));
+		lp.perform_LoginPage(ExcelReadUtils.readStringData(1, 0, "Sheet1", "LoginCredentialsExcel.xlsx"),
+				ExcelReadUtils.readStringData(1, 1, "Sheet1", "LoginCredentialsExcel.xlsx"));
 		expense_cat_obj = new ME_ExpenseCategoryClass(driver);
 		sdElem = new SideBarElements(driver);
 		sdElem.click_sidebar_manage_expense();
 		sdElem.sidebar_ME_Expense_Category();
 		expense_cat_obj.update_ExpenseCategory_Element();
-		String actualresult= expense_cat_obj.verify_alert_isPresent();
+		String actualresult = expense_cat_obj.verify_alert_isPresent();
 		String expectedResult = "Alert!";
 		Assert.assertEquals(actualresult, expectedResult, "Result not matching");
 	}
@@ -98,8 +100,8 @@ public class ME_ExpenseCategoryPage extends BaseClass {
 	@Test(priority = 7)
 	public void verify_ManageExpense_Expensecategory_AddedElement_isDeletable() throws IOException {
 		lp = new LoginPage(driver);
-		lp.perform_LoginPage(ExcelReadUtils.readStringData(1, 0, "Sheet1"),
-				ExcelReadUtils.readStringData(1, 1, "Sheet1"));
+		lp.perform_LoginPage(ExcelReadUtils.readStringData(1, 0, "Sheet1", "LoginCredentialsExcel.xlsx"),
+				ExcelReadUtils.readStringData(1, 1, "Sheet1", "LoginCredentialsExcel.xlsx"));
 		expense_cat_obj = new ME_ExpenseCategoryClass(driver);
 		sdElem = new SideBarElements(driver);
 		sdElem.click_sidebar_manage_expense();

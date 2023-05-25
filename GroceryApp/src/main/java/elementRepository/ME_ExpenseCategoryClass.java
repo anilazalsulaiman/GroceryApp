@@ -61,7 +61,8 @@ public class ME_ExpenseCategoryClass {
 	}
 
 	public void ExpenseCategory_Add_title() {
-		// use random string/number generator "+Math.random()+"
+		// use random string/number generator 
+//		"+Math.random()+"
 //		<dependency>
 //		<groupId>org.apache.commons</groupId>
 //		<artifactId>commons-lang3</artifactId>
@@ -88,8 +89,7 @@ public class ME_ExpenseCategoryClass {
 
 	public String click_ExpenseCategory_update_icon() {
 		get_updateIcon_ExpenseCategory_element().click();
-		update_InputField_Textbox.getAttribute("value");
-		return gu.getElementAttributevalue(update_InputField_Textbox);
+		return gu.getElementAttributevalue(update_InputField_Textbox,"value");
 	}
 
 	public void update_ExpenseCategory_Element() {

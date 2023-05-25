@@ -1,5 +1,7 @@
 package elementRepository;
 
+import java.awt.AWTException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -57,6 +59,15 @@ public class Repo_ME_Sub_ManageExpense {
 	@FindBy(xpath = "//textarea[@id='content']")
 	WebElement addexpense_Remarks;
 
+	@FindBy(xpath = "//button[@type='submit']")
+	WebElement addexpense_SaveButton;
+
+	@FindBy(xpath = "//input[@name='userfile']")
+	WebElement addexpense_UserFileUpload;
+
+	@FindBy(xpath = "//h5[text()=' Alert!']")
+	WebElement Manageexpense_alert_present;
+
 	public WebElement get_ViewMore_element() {
 		int rowValue = gdtable.get_Dynamic_Table_Elements(driver,
 				"//table[@class='table table-bordered table-hover table-sm']//tbody//tr//td[1]",
@@ -70,16 +81,11 @@ public class Repo_ME_Sub_ManageExpense {
 	public boolean click_Sub_Manageexpense_ViewMore_button() {
 		get_ViewMore_element().click();
 		gu.explicit_wait_utility(driver, "//tr[@class='detail-row open']");
-		boolean value = false;
-		if (detail_row_open.getAttribute("class").contains("detail-row open")) {
-			value = true;
-		} else {
-			value = false;
-		}
-		return value;
+		return gdtable.find_Compare_DynamicTable_Element(detail_row_open, "class", "detail-row open");
 	}
 
-	public String click_Sub_Manageexpense_New_Button() {
+	public String click_Sub_Manageexpense_New_Button() throws InterruptedException {
+		gu.medium_Delay();
 		NewButton.click();
 		return gu.getElementText(verify_Addexpense_Title);
 
@@ -113,11 +119,22 @@ public class Repo_ME_Sub_ManageExpense {
 	public void Sub_ManageExpense_Add_Expense_Amount() {
 		gu.sendKeyElements(addexpense_Amount, Integer.toString(100));
 	}
+
 	public void Sub_ManageExpense_Add_Remark() {
 		gu.sendKeyElements(addexpense_Remarks, "Sample Remark Added");
 	}
 
-	public void Sub_ManageExpense_AddNew_Expense() {
+	public void Sub_ManageExpense_user_FileUpload() throws AWTException, InterruptedException {
+		gu.pageScroll_Utility(driver, 0, 800);
+		gu.medium_Delay();
+		gu.file_Upload_Utility(driver, addexpense_UserFileUpload);
+	}
+
+	public void Sub_ManageExpense_Click_SaveButton() {
+		addexpense_SaveButton.click();
+	}
+
+	public String Sub_ManageExpense_AddNew_Expense() throws AWTException, InterruptedException {
 		Sub_ManageExpense_Add_Expense_Ddluser();
 		gu.keyboard_Event_Tab(driver);
 		Sub_ManageExpense_AddExpense_Date_Datepicker();
@@ -134,7 +151,19 @@ public class Repo_ME_Sub_ManageExpense {
 		gu.keyboard_Event_Tab(driver);
 		Sub_ManageExpense_Add_Remark();
 		gu.keyboard_Event_Tab(driver);
-		
+		Sub_ManageExpense_user_FileUpload();
+		Sub_ManageExpense_Click_SaveButton();
+		return gu.getElementText(Manageexpense_alert_present);
+	}
+
+	public String Sub_ManageExpense_NewlyAddedElement_isPresent() {
+		int rowValue = gdtable.get_Dynamic_Table_Elements(driver,
+				"//table[@class='table table-bordered table-hover table-sm']//tbody//tr//td[1]",
+				"NewFruit001 (Admin-AD)");
+		String locator = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr[" + rowValue
+				+ "]//td[1]";
+		WebElement Findelement = driver.findElement(By.xpath(locator));
+		return gu.getElementText(Findelement);
 	}
 
 }

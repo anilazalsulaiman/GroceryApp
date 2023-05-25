@@ -15,9 +15,9 @@ public class ExcelReadUtils {
 	public static XSSFWorkbook wb;
 	public static XSSFSheet sheet;
 
-	public static String readStringData(int i, int j,String sheetName) throws IOException {
+	public static String readStringData(int i, int j,String sheetName,String excelFileName) throws IOException {
 		obj1 = new FileInputStream(
-				System.getProperty("user.dir") + "\\src\\main\\resources\\ExcelReadWrite\\LoginCredentialsExcel.xlsx");
+				System.getProperty("user.dir") + "\\src\\main\\resources\\ExcelReadWrite\\"+excelFileName+"");
 		wb = new XSSFWorkbook(obj1);
 		sheet = wb.getSheet(sheetName);
 

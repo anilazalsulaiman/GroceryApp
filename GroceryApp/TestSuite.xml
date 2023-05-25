@@ -4,6 +4,9 @@
 			<class name="testCases.LoginTestCases"></class>
 			<class name="testCases.ME_ExpenseCategoryPage"></class>
 			<class name="testCases.Tc_ME_Sub_ManageExpense"></class>
+			<class name="testCases.Tc_ManageProduct"></class>
+			<class name="testCases.Tc_PushNotifications"></class>
+			<class name="testCases.Tc_ManageContent_ManagePages"></class>
 		</classes>
 	</test>
 </suite>

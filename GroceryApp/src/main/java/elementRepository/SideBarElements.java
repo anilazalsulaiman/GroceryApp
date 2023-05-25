@@ -22,6 +22,18 @@ public class SideBarElements {
 		@FindBy(xpath = "//p[text()='Manage Expense']")
 		WebElement sidebar_ME_SubManage_Expense_element;
 		
+		@FindBy(xpath = "//p[text()='Manage Product']")
+		WebElement sidebar_ManageProduct_element;
+		
+		@FindBy(xpath = "//p[text()='Push Notifications']")
+		WebElement sidebar_Push_Notifications_element;
+		
+		@FindBy(xpath = "//i[@class='nav-icon fas fa-edit']")
+		WebElement sidebar_manage_Pages;
+		
+		@FindBy(xpath = "//p[text()='Manage Pages']")
+		WebElement sidebar_Manage_Pages_element;
+		
 		public void click_sidebar_manage_expense() {
 			sidebar_manage_expense.click();
 		}
@@ -31,4 +43,18 @@ public class SideBarElements {
 		public void sidebar_ME_SubManage_Expense() {
 			sidebar_ME_SubManage_Expense_element.click();
 		}
+		public void sidebar_ManageProduct() {
+			sidebar_ManageProduct_element.click();
+		}
+		public void sidebar_PushNotifications() {
+			sidebar_Push_Notifications_element.click();
+		}
+		public void sidebar_manage_Content() {
+			sidebar_manage_Pages.click();
+		}
+		public void sidebar_manage_Pages() {
+			sidebar_Manage_Pages_element.click();
+		}
+		
+		
 }

@@ -13,7 +13,7 @@ import utilities.GeneralUtilities;
 public class LoginTestCases extends BaseClass { // inheritance
 	LoginPage lp;
 
-	@Test(enabled = false, retryAnalyzer = RetryAnalyzer.class)
+	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void verify_LoginButton_text() {
 		lp = new LoginPage(driver);
 		String exepectedResult = "Sign In";
@@ -21,7 +21,7 @@ public class LoginTestCases extends BaseClass { // inheritance
 		Assert.assertEquals(actualResult, exepectedResult, "Not matching");
 	}
 
-	@Test(enabled = false)
+	@Test
 	public void verify_login_button_bG_color() {
 		lp = new LoginPage(driver);
 		String exepectedResult = Constants.loginButton_Background_color;
