@@ -1,7 +1,11 @@
 <suite name="My_suit">
+	<listeners>
+		<listener class-name="utilities.ExtentReport" />
+	</listeners>
 	<test name="My_test">
+	<parameter name="browser" value="chrome"></parameter>
 		<classes>
-			<class name="testCases.LoginTestCases"></class>
+			<class name="testCases.Tc_PushNotifications"></class>
 		</classes>
 	</test>
 </suite>
