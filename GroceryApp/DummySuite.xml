@@ -5,7 +5,7 @@
 	<test name="My_test">
 	<parameter name="browser" value="chrome"></parameter>
 		<classes>
-			<class name="testCases.Tc_PushNotifications"></class>
+			<class name="testCases.Tc_ManageContent_ManagePages"></class>
 		</classes>
 	</test>
 </suite>

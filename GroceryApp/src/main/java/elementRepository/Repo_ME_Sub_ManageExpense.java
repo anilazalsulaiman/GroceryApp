@@ -127,7 +127,7 @@ public class Repo_ME_Sub_ManageExpense {
 	public void Sub_ManageExpense_user_FileUpload() throws AWTException, InterruptedException {
 		gu.pageScroll_Utility(driver, 0, 800);
 		gu.medium_Delay();
-		gu.file_Upload_Utility(driver, addexpense_UserFileUpload);
+		gu.file_Upload_Utility(driver, addexpense_UserFileUpload,"image1.jpg");
 	}
 
 	public void Sub_ManageExpense_Click_SaveButton() {

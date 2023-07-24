@@ -1,12 +1,14 @@
 package elementRepository;
 
 import java.awt.AWTException;
+import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.ExcelReadUtils;
 import utilities.GeneralDynamicTable;
 import utilities.GeneralUtilities;
 
@@ -32,13 +34,24 @@ public class Repo_ManageContent_ManagePages {
 
 	@FindBy(xpath = "//button[@data-original-title='Bold (CTRL+B)']")
 	WebElement addPage_DescriptionStyle_Bold;
+	
+	@FindBy(xpath = "//input[@id='page']")
+	WebElement addPage_Page;
+	
+	@FindBy(xpath = "//input[@name='main_img']")
+	WebElement addPage_ImageFileUpload;
+	
+	@FindBy(xpath = "//button[@type='submit']")
+	WebElement addPage_SaveButton;
+
+	
 
 	public void newButton_Click() {
 		newButton.click();
 	}
 
-	public void manageContent_ManagePages_AddNew_title() {
-		gu.sendKeyElements(addPage_Title, "Sample title");
+	public void manageContent_ManagePages_AddNew_title() throws IOException {
+		gu.sendKeyElements(addPage_Title, ExcelReadUtils.readStringData(1,1, "ManageContent_ManagePages", "TestDatas.xlsx"));
 	}
 
 	public void manageContent_ManagePages_AddNew_description() throws AWTException {
@@ -60,9 +73,26 @@ public class Repo_ManageContent_ManagePages {
 		return gdtable.find_Compare_DynamicTable_Element(addPage_DescriptionStyle_Bold, "class", "active");
 	}
 
-	public void manageContent_ManagePages_AddNew_clickSaveButton() throws AWTException {
+	public void manageContent_ManagePages_AddNew_pageField() {
+		gu.sendKeyElements(addPage_Page,Double.toString(123+gu.random_Num_Generator()));
+	}
+	public void manageContent_ManagePages_AddNew_FileUpload() throws AWTException, InterruptedException {
+		gu.pageScroll_Utility(driver, 0, 500);
+		gu.medium_Delay();
+		gu.file_Upload_Utility(driver, addPage_ImageFileUpload,"image2.jpg");
+	}
+
+	public void manageContent_ManagePages_AddNew_Click_SaveButton() {
+		gu.element_Click(addPage_SaveButton);
+	}
+
+	public void manageContent_ManagePages_AddNew_clickSaveButton() throws AWTException, IOException, InterruptedException {
 		newButton_Click();
 		manageContent_ManagePages_AddNew_title();
 		manageContent_ManagePages_AddNew_description();
+		gu.keyboard_Event_Unselect_AllText(driver);
+		manageContent_ManagePages_AddNew_pageField();
+		manageContent_ManagePages_AddNew_FileUpload();
+		manageContent_ManagePages_AddNew_Click_SaveButton();
 	}
 }

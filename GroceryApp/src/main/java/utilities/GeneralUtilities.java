@@ -20,6 +20,9 @@ import org.testng.annotations.DataProvider;
 
 public class GeneralUtilities {
 	// General reusable methods
+	public void element_Click(WebElement element) {
+		element.click();
+	}
 	public void medium_Delay() throws InterruptedException {
 		Thread.sleep(2000);
 	}
@@ -98,8 +101,8 @@ public class GeneralUtilities {
 		robot.keyRelease(KeyEvent.VK_A);
 	}
 
-	public void random_Num_Generator() {
-		Math.random();
+	public double random_Num_Generator() {
+		return Math.random();
 	}
 
 	public void pageScroll_Utility(WebDriver driver, int horizontal, int vertical) {
@@ -107,12 +110,12 @@ public class GeneralUtilities {
 		js.executeScript("window.scrollBy(" + horizontal + "," + vertical + ")", "");
 	}
 
-	public void file_Upload_Utility(WebDriver driver, WebElement element) throws AWTException {
+	public void file_Upload_Utility(WebDriver driver, WebElement element, String imageName) throws AWTException {
 		Robot robot = new Robot();
 		Actions action = new Actions(driver);
 		action.moveToElement(element).click().perform();
 		StringSelection ss = new StringSelection(
-				System.getProperty("user.dir") + "\\src\\main\\resources\\FileUploads\\image1.jpg");
+				System.getProperty("user.dir") + "\\src\\main\\resources\\FileUploads\\"+imageName+"");
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 		robot.delay(250);
 		robot.keyPress(KeyEvent.VK_CONTROL);
